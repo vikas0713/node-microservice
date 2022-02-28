@@ -8,7 +8,7 @@ services:
       - ./listings-service:/opt/app
   listings-service-db:
     environment:
-      - MYSQL_DB_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
     image: mysql:5.7.20
     platform: linux/amd64
@@ -18,10 +18,10 @@ services:
     depends_on: 
       - users-service-db
     volumes:
-      - ./listings-service:/opt/app
+      - ./users-service:/opt/app
   users-service-db:
     environment:
-      - MYSQL_DB_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=password
       - MYSQL_DATABASE=db
     image: mysql:5.7.20
     platform: linux/amd64
